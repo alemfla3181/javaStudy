@@ -9,16 +9,18 @@ public class GoodsApp extends Goods {
 		Scanner scanner = new Scanner(System.in);
 
 		Goods[] goods = new Goods[COUNT_GOODS];
-		
 
 		// 상품 입력
 		for (int i = 0; i < COUNT_GOODS; i++) {
 			goods[i] = new Goods();
-			goods[i].setProduct(scanner.next());
-			goods[i].setPrice(scanner.nextInt());
-			goods[i].setNum(scanner.nextInt());
+			String line = scanner.nextLine();
+			String[] datas = line.split(" ");
+
+			goods[i].setProduct(datas[0]);
+			goods[i].setPrice(Integer.parseInt(datas[1]));
+			goods[i].setNum(Integer.parseInt(datas[2]));
 		}
-		// 상품 출
+		// 상품 출력
 		for (int i = 0; i < COUNT_GOODS; i++)
 			System.out.println(
 					goods[i].getProduct() + "(가격:" + goods[i].getPrice() + "원)이 " + goods[i].getNum() + "개 입고 되었습니다.");
