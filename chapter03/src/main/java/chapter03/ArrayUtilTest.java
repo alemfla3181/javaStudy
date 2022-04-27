@@ -1,0 +1,23 @@
+package chapter03;
+
+import java.util.Arrays;
+
+public class ArrayUtilTest {
+
+	public static void main(String[] args) {
+		double[] d1 = ArrayUtil.intToDouble(new int[] { 10, 20, 30, 40 });
+
+		for (double i : d1) {
+			System.out.println(i);
+		}
+
+		System.out.println(Arrays.toString(d1));
+
+		int[] a1 = ArrayUtil.doubleToint(new double[] { 10.1, 20.2, 30.3, 40.4 });
+
+		String a = Arrays.toString(a1);
+		System.out.println(a);
+		int[] a2 = ArrayUtil.concat(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 });
+		System.out.println(Arrays.toString(a2));
+	}
+}
