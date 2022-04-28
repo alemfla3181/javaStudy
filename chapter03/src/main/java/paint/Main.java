@@ -8,5 +8,34 @@ public class Main {
 		point1.setY(10);
 
 		point1.show();
+
+		Point point2 = new Point(50, 100);
+		drawPoint(point2);
+		point2.show(false);
+
+		ColorPoint point3 = new ColorPoint(40, 50, "red");
+		drawPoint(point3);
+
+		Triangle triangle = new Triangle();
+		drawTriangle(triangle);
+
+		Rectangle rectangle = new Rectangle();
+		drawRectangle(rectangle);
 	}
+
+	public static void drawTriangle(Triangle triangle) {
+		triangle.draw();
+	}
+
+	public static void drawRectangle(Rectangle rectangle) {
+		rectangle.draw();
+	}
+
+	public static void drawPoint(Point point) {
+		point.show();
+	}
+
+//	public static void drawColorPoint(ColorPoint point) {
+//		point.show();
+//	}
 }
