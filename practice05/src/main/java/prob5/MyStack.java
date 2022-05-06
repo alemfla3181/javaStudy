@@ -32,9 +32,9 @@ public class MyStack {
 		stackArray = Newstack;
 	}
 
-	public String pop() {
+	public String pop() throws MyStackException {
 		if (isEmpty()) {
-			throw new MyStackException();
+			throw new MyStackException("stack is empty");
 		} else {
 			return stackArray[top--];
 		}
