@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class BookShop {
 
 	private static void displayBookInfo(Book[] str) {
-		for (int i = 0; i < str.length; i++) {
-			str[i].print();
+		for (Book b : str) {
+			b.print();
 		}
 	}
 
