@@ -79,7 +79,7 @@ public class RequestHandler extends Thread {
 		}
 	}
 
-	private void responseStaticResource(OutputStream outputStream, String url, String protocol) throws IOException {
+	private void responseStaticResource(OutputStream outputStream, String url, String protocol) throws Exception {
 		// welcome file set
 		if ("/".equals(url)) {
 			url = "/index.html";
@@ -103,14 +103,23 @@ public class RequestHandler extends Thread {
 		outputStream.write(body);
 	}
 
-	private void response400Error(OutputStream outputStream, String url, String protocol) {
+	private void response400Error(OutputStream outputStream, String url, String protocol) throws Exception {
+		outputStream.write((protocol + " 400 Bad Request\n").getBytes("UTF-8"));
+		outputStream.write(("Content-Type:text/html; charset=utf-8\n").getBytes("UTF-8"));
+		outputStream.write("\n".getBytes());
+		outputStream.write(Files.readAllBytes(new File("./webapp/error/400.html").toPath()));
+
 		/*
 		 * HTTP/1.1 400 Bad Request\n Content-Type: text/html; charset=utf-8\n" \n
 		 * /error/404.html 내용
 		 */
 	}
 
-	private void response404Response(OutputStream outputStream, String url, String protocol) {
+	private void response404Response(OutputStream outputStream, String url, String protocol) throws Exception {
+		outputStream.write((protocol + " 404 File Not Found\n").getBytes("UTF-8"));
+		outputStream.write(("Content-Type:text/html; charset=utf-8\n").getBytes("UTF-8"));
+		outputStream.write("\n".getBytes());
+		outputStream.write(Files.readAllBytes(new File("./webapp/error/404.html").toPath()));
 		/*
 		 * HTTP/1.1 404 File Not Found\n Content-Type: text/html; charset=utf-8\n" \n
 		 * /error/404.html 내용
