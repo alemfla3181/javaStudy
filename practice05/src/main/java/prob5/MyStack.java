@@ -38,5 +38,6 @@ public class MyStack {
 		} else {
 			return stackArray[top--];
 		}
+
 	}
 }
