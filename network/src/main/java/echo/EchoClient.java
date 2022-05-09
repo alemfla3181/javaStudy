@@ -22,7 +22,6 @@ public class EchoClient {
 			socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT));
 			log("conneted");
 
-			// 3. IO Stream 받아오기
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
 
@@ -33,7 +32,6 @@ public class EchoClient {
 				if ("exit".equals(line)) {
 					break;
 				}
-
 				pw.println(line);
 
 				String data = br.readLine();
@@ -41,7 +39,6 @@ public class EchoClient {
 					log("closed by server");
 					break;
 				}
-
 				System.out.println("<<" + data);
 			}
 		} catch (IOException e) {
@@ -53,7 +50,6 @@ public class EchoClient {
 					socket.close();
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
